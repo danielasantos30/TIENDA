@@ -58,17 +58,7 @@ public class CategoriaService implements ICategoriaService {
         return listaCategoriaDTO;
     }
 
-    private UsuarioDTO convertirUsuarioADTO(UsuarioEntity usuarioEntity) {
-    	if (usuarioEntity == null)
-    		return null;
-        return new UsuarioDTO(
-            usuarioEntity.getIdUsuario(),
-            usuarioEntity.getIdRol(),
-            usuarioEntity.getNombre(),
-            usuarioEntity.getApellido(),
-            usuarioEntity.getEmail()
-        );
-    }
+   
 
     @Override
     public void eliminarCategoriaSiExiste(int idcategoria) {
@@ -165,6 +155,35 @@ public class CategoriaService implements ICategoriaService {
             }
         }
     
+    
+    
+    public CategoriaDTO convertirCategoriaADTO(CategoriaEntity categoriaEntity) {
+ 	   if (categoriaEntity == null)
+ 		   return null;
+ 	   return new CategoriaDTO (
+ 			   categoriaEntity.getIdcategoria(),
+ 			   categoriaEntity.getNombre(),
+ 			   categoriaEntity.getDescripcion(),
+ 			   categoriaEntity.getFechaCreacion(),
+ 			   categoriaEntity.getFechaEliminacion(),
+ 			  convertirUsuarioADTO(categoriaEntity.getUsuarioCreacion()),
+ 			  convertirUsuarioADTO(categoriaEntity.getUsuarioEliminacion())
+ 	   
+ 			   );
+    }
+    
+    
+    private UsuarioDTO convertirUsuarioADTO(UsuarioEntity usuarioEntity) {
+    	if (usuarioEntity == null)
+    		return null;
+        return new UsuarioDTO(
+            usuarioEntity.getIdUsuario(),
+            usuarioEntity.getIdRol(),
+            usuarioEntity.getNombre(),
+            usuarioEntity.getApellido(),
+            usuarioEntity.getEmail()
+        );
+    }
     
   
 }

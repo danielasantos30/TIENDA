@@ -11,14 +11,6 @@ public interface ICategoriaService {
 	
 	List<CategoriaDTO> obtenerTodasLasCategorias();
 	
-	
-	
-	
-	//CategoriaDTO eliminarCategoriaPorId(int id);
-	
-	//CategoriaDTO updateCategoria(CategoriaDTO categoriaDTO);
-	
-	// ✅ NUEVOS métodos con lógica de negocio
     void eliminarCategoriaSiExiste(int idcategoria);      // Reemplaza eliminarAlumnoPorId
     
     CategoriaDTO actualizarCategoria(int id, CategoriaDTO categoriaDTO); // Reemplaza updateAlumno
